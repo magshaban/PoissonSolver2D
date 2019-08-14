@@ -150,7 +150,7 @@ r = RobinVec2D(p, e)
 A_R = A + R
 b_r = b + r
 
-u = np.linalg.inv(A_R) @ b_r
+u = np.linalg.inv(A_R)@b_r
 
 print('The Stiffness Matrix(A) = \n', A)
 print('\nThe load vector (b)= \n', b)
