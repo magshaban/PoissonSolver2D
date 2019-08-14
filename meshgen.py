@@ -1,10 +1,12 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  6 01:38:21 2019
-
-@author: maged
-"""
+# The part of <possionSolver2D.py> 
+# This file generates the mesh with defining a data structure for storing the mesh.
+# This file under development, 
+# It will be generated automatically in the next code's version based on Delaunay Triangulation.
+# you can also use a third party file to generate the mesh.
+# t is the connectivity matrix 
+# e is the edge matrix 
+# p is the nodes coordinates matrix. 
+# points is an array that generates the coordinates of the nodes.  
 
 import numpy as np 
 
@@ -14,8 +16,10 @@ def meshgen():
 
 
     p = np.array([
-        [-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1],
-        [-1,-1,-1,-1,-1,-0.5,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0,0.5,0.5,0.5,0.5,0.5,1,1,1,1,1]
+        [-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1,-1,-0.5,0,
+         0.5,1,-1,-0.5,0,0.5,1,-1,-0.5,0,0.5,1],
+        [-1,-1,-1,-1,-1,-0.5,-0.5,-0.5,-0.5,-0.5,0,0,
+         0,0,0,0.5,0.5,0.5,0.5,0.5,1,1,1,1,1]
         ])
     t = np.array([
         [1,2,2,2,3,4,4,4,
@@ -42,7 +46,17 @@ def meshgen():
                   [25,24],[24,23],[23,22],[22,21],
                   [21,16],[16,11],[11,6],[6,1]
                   ])
-    e=E.T
+    e = E.T
 
     return p,t,e
-    
+
+def delpoints():
+    points = np.array([[0,0],[1,0],[-1,0],[0,1],
+                   [0,-1],[-1, -1], [1, -1], 
+                   [1, 1], [-1, 1],[-0.5,1],
+                   [0.5,1],[-1,0.5],[0,0.5],
+                   [1,0.5],[-0.5,0],[0.5,0],
+                   [-1,-0.5],[0,-0.5],[1,-0.5],
+                   [-0.5,-1],[0.5,-1],[0.5,0.5],
+                   [-0.5,-0.5],[0.5,-0.5],[-0.5,0.5] ])
+    return points
