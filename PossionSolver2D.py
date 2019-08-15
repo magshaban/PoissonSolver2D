@@ -79,8 +79,7 @@ def LoadVec2D(p, t):
         bk = np.array(([func(x[0], y[0])],
                        [func(x[1], y[1])],
                        [func(x[2], y[2])])) / 3 * area
-                        
-        b[loc2glob] += bk # assemple local to global matrix 
+        b[loc2glob] += bk
 
     return b
 
