@@ -1,19 +1,18 @@
-# This is a poisson equation solver in 2D using FEM.
+# This is a poisson 2D equation solver using FEM.
 # This is the main file.
 #
 # code by: Maged Shaban
 # magshaban[at]gmail.com  
 
 import numpy as np
-from math import sqrt
-
 import matplotlib.pyplot as plt
 
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-
 from matplotlib.colors import LogNorm
+
+from math import sqrt
 
 from meshgen import *
 from poltall import *
@@ -80,7 +79,8 @@ def LoadVec2D(p, t):
         bk = np.array(([func(x[0], y[0])],
                        [func(x[1], y[1])],
                        [func(x[2], y[2])])) / 3 * area
-        b[loc2glob] += bk
+                        
+        b[loc2glob] += bk # assemple local to global matrix 
 
     return b
 
