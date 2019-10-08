@@ -162,3 +162,5 @@ print('\n the solution u(x)= \n', u)
 
 delunay_plot(points)
 poltall(x=p[0, :], y=p[1, :], zt=u, mat=A)
+
+
