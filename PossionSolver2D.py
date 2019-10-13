@@ -61,7 +61,7 @@ def stiffMat2D(p, t):
 
 # The given function
 def func(x, y):
-    return 0
+    return x + y
 
 
 # This laod vector f(v) evaluation.
@@ -90,13 +90,13 @@ def kappa(x, y):
 
 def gN(x, y):
     if x < -0.99:
-        return 1
+        return y +1
     else:
-        return 0
+        return x**2
 
 
 def gD(x, y):
-    return np.sin(x + y) ** 2
+    return np.sin((x + y) * np.pi ** 2)
 
 
 # The following codes for the boundary condition. 
