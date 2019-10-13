@@ -27,28 +27,31 @@ def poltall(x, y, zt, mat):
     ax2.spy(mat)
     plt.show()
 
+
+    U = np.zeros(len(zt))
+
+    for i in range(len(zt)):
+        U[i] = zt[i][0]
+
     fig = plt.figure()
     ax = fig.gca(projection='3d')
-    # f = func(p[0,:], p[1,:])
-    # Plot the surface.
-    surf = ax.plot_surface(x, y, zt, cmap=cm.coolwarm,
-                           linewidth=0, antialiased=False)
+    z =U
+    surf = ax.plot_trisurf(x, y, z, cmap=cm.Spectral,linewidth=0, antialiased=False)
     # Customize the z axis.
-    ax.set_zlim(-1.33, 4)
     ax.zaxis.set_major_locator(LinearLocator(10))
-    ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+    ax.zaxis.set_major_formatter(FormatStrFormatter('  %.03f'))
+    # Add a color bar which maps values to colors.
+    fig.colorbar(surf, shrink=0.7, aspect=9)
+    plt.title('the solution $u_h(x)$')
+    plt.show()   
 
-    fig.colorbar(surf, shrink=0.7, aspect=15)
-    plt.title('The solution $u$')
-    plt.show()
-
-    x_list = x
-    y_list = y
-    z_list = zt
-    N = int(len(zt) ** .5)
-    z = zt.reshape(N, N)
-    plt.title('The solution $u$')
-    plt.imshow(z, extent=(np.amin(x_list), np.amax(x_list), np.amin(y_list), np.amax(y_list)), norm=LogNorm(),
-               aspect='auto')
-    plt.colorbar()
-    plt.show()
+#    x_list = x
+#    y_list = y
+#    z_list = zt
+#    N = int(len(zt) ** .5)
+#    z = zt.reshape(N, N)
+#    plt.title('The solution $u$')
+#    plt.imshow(z, extent=(np.amin(x_list), np.amax(x_list), np.amin(y_list), np.amax(y_list)), norm=LogNorm(),
+#               aspect='auto')
+#    plt.colorbar()
+#    plt.show()

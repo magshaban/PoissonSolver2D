@@ -151,8 +151,8 @@ b_r = b + r
 
 u = np.linalg.inv(A_R)@b_r
 
-print('The Stiffness Matrix(A) = \n', A)
-print('\nThe load vector (b)= \n', b)
+#print('The Stiffness Matrix(A) = \n', A)
+#print('\nThe load vector (b)= \n', b)
 print('\nThe nodes are: \n', points)
 print('\n=======================================\n')
 print('The total number of nodes = ', p.shape[1])
@@ -160,7 +160,9 @@ print('The total number of elements = ', t.shape[1])
 print('\n=======================================\n')
 print('\n the solution u(x)= \n', u)
 
-delunay_plot(points)
+#delunay_plot(points)
 poltall(x=p[0, :], y=p[1, :], zt=u, mat=A)
 
 
+
+    
